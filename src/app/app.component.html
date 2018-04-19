@@ -1,0 +1,99 @@
+<div class="grid__item">
+  <div class="label-form form-vertical">
+    <form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="form" class="animate-floating-labels">
+      <div class="errors" *ngIf="form.touched &&
+    (
+      form.get('vendorName').hasError('required') && form.get('vendorName').touched ||
+      form.get('poNumber').hasError('required') && form.get('poNumber').touched ||
+      form.get('itemNumber').hasError('required') && form.get('itemNumber').touched ||
+      form.get('quantity').hasError('required') && form.get('quantity').touched ||
+      form.get('uom').hasError('required') && form.get('uom').touched ||
+      form.get('configuration').hasError('required') && form.get('configuration').touched)">
+        <ul>
+          <li *ngIf="form.get('vendorName').hasError('required') && form.get('vendorName').touched">
+            {{'VALIDATION.REQUIRED_VENDOR_NAME' | translate}}
+          </li>
+          <li *ngIf="form.get('poNumber').hasError('required') && form.get('poNumber').touched">
+            {{'VALIDATION.REQUIRED_PO_NUMBER' | translate}}
+          </li>
+          <li
+            *ngIf="form.get('itemNumber').hasError('required') && form.get('itemNumber').touched">
+            {{'VALIDATION.REQUIRED_ITEM_NUMBER' | translate}}
+          </li>
+          <li
+            *ngIf="form.get('quantity').hasError('required') && form.get('quantity').touched">
+            {{'VALIDATION.REQUIRED_QUANTITY' | translate}}
+          </li>
+          <li
+            *ngIf="form.get('uom').hasError('required') && form.get('uom').touched">
+            {{'VALIDATION.REQUIRED_UOM' | translate}}
+          </li>
+          <li
+            *ngIf="form.get('configuration').hasError('required') && form.get('configuration').touched">
+            {{'VALIDATION.REQUIRED_CONFIGURATION' | translate}}
+          </li>
+        </ul>
+      </div>
+      <div class="grid">
+        <div class="grid__item large--one-half no-print">
+          <label class="hidden-label">{{'LABEL.VENDOR_NAME' | translate}}</label>
+          <input class="input-full"
+                 [ngClass]="{error: form.get('vendorName').hasError('required') && form.get('vendorName').touched}"
+                 placeholder="{{'LABEL.VENDOR_NAME' | translate}}" type="text"
+                 formControlName="vendorName">
+
+
+          <label class="hidden-label">{{'LABEL.PO_NUMBER' | translate}}</label>
+          <input class="input-full"
+                 [ngClass]="{error: form.get('poNumber').hasError('required') && form.get('poNumber').touched}"
+                 placeholder="{{'LABEL.PO_NUMBER' | translate}}" type="text"
+                 formControlName="poNumber">
+
+
+          <label class="hidden-label">{{'LABEL.ITEM_NUMBER' | translate}}</label>
+          <input class="input-full"
+                 [ngClass]="{error: form.get('itemNumber').hasError('required') && form.get('itemNumber').touched}"
+                 placeholder="{{'LABEL.ITEM_NUMBER' | translate}}" type="text"
+                 formControlName="itemNumber">
+
+          <label class="hidden-label"> {{'LABEL.QUANTITY' | translate}}</label>
+          <input type="number" class="input-full" placeholder="{{'LABEL.QUANTITY' | translate}}"
+                 [ngClass]="{error: form.get('quantity').hasError('required') && form.get('quantity').touched}"
+                 formControlName="quantity">
+
+          <label class="hidden-label">{{'LABEL.UOM' | translate}}</label>
+          <input type="text" class="input-full" placeholder="{{'LABEL.UOM' | translate}}"
+                 [ngClass]="{error: form.get('uom').hasError('required') && form.get('uom').touched}"
+                 formControlName="uom">
+
+          <label class="hidden-label">{{'LABEL.CONFIGURATION' | translate}}</label>
+          <input class="input-full"
+                 [ngClass]="{error: form.get('configuration').hasError('required') && form.get('configuration').touched}"
+                 placeholder="{{'LABEL.CONFIGURATION' | translate}}" type="text"
+                 formControlName="configuration">
+          <button name="button" class="btn" type="submit">
+            {{'BUTTON.GENERATE' | translate}}
+          </button>
+        </div>
+        <div *ngIf="formSubmitted" class="grid__item large--one-half vendor-label">
+          <h1>{{'LABEL.VENDOR_NAME' | translate}}: {{vendorLabel.vendorName}}</h1>
+          <ngx-barcode [bc-value]="vendorLabel.vendorName" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>Po Number</label>
+          <ngx-barcode [bc-value]="vendorLabel.poNumber" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>Blendtec Item Number</label>
+          <ngx-barcode [bc-value]="vendorLabel.itemNumber" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>Quantity</label>
+          <ngx-barcode [bc-value]="vendorLabel.quantity" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>UOM</label>
+          <ngx-barcode [bc-value]="vendorLabel.uom" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>Configuration</label>
+          <ngx-barcode [bc-value]="vendorLabel.configuration" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <button name="button" class="btn no-print" onClick="window.print()">
+            {{'BUTTON.PRINT' | translate}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
