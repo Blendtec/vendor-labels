@@ -11,8 +11,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent implements OnDestroy {
 
   public form: FormGroup;
-  public formSubmitted: boolean = false;
   public vendorLabel: any;
+  public formSubmitted = false;
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private formBuilder: FormBuilder, translate: TranslateService) {
@@ -29,8 +29,6 @@ export class AppComponent implements OnDestroy {
   }
 
   public onSubmit(form: FormGroup): void {
-   console.log('SUBMITTED form', form);
-   console.log('LABEL', form.value);
     this.vendorLabel = form.value;
     this.formSubmitted = true;
   }

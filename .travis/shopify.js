@@ -2,7 +2,6 @@ var fs = require("fs");
 var path = require("path");
 var ShopifyAPI = require("shopify-node-api");
 var args = process.argv.slice(2);
-console.log('ARGS', args);
 
 var Shopify = new ShopifyAPI({
     shop: args[0],
