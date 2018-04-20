@@ -10,13 +10,14 @@ import { NgPipesModule } from 'ngx-pipes';
 import { NgxBarcodeModule } from 'ngx-barcode';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { PrintComponent } from './print-modal.component';
 
 export function HttpLoaderFactory(http: HttpClient, config: AppConfig) {
   return new TranslateHttpLoader(http, `${config.assets}/i18n/`, '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PrintComponent],
   imports: [
     AppConfigModule,
     BrowserModule,

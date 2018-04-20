@@ -71,27 +71,11 @@
                  [ngClass]="{error: form.get('configuration').hasError('required') && form.get('configuration').touched}"
                  placeholder="{{'LABEL.CONFIGURATION' | translate}}" type="text"
                  formControlName="configuration">
-          <button name="button" class="btn" type="submit">
+          <button [disabled]="form.invalid" name="button" class="btn" type="submit">
             {{'BUTTON.GENERATE' | translate}}
           </button>
         </div>
-        <div *ngIf="formSubmitted" class="grid__item large--one-half vendor-label">
-          <h1>{{'LABEL.VENDOR_NAME' | translate}}: {{vendorLabel.vendorName}}</h1>
-          <ngx-barcode [bc-value]="vendorLabel.vendorName" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
-          <label>Po Number</label>
-          <ngx-barcode [bc-value]="vendorLabel.poNumber" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
-          <label>Blendtec Item Number</label>
-          <ngx-barcode [bc-value]="vendorLabel.itemNumber" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
-          <label>Quantity</label>
-          <ngx-barcode [bc-value]="vendorLabel.quantity" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
-          <label>UOM</label>
-          <ngx-barcode [bc-value]="vendorLabel.uom" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
-          <label>Configuration</label>
-          <ngx-barcode [bc-value]="vendorLabel.configuration" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
-          <button name="button" class="btn no-print" onClick="window.print()">
-            {{'BUTTON.PRINT' | translate}}
-          </button>
-        </div>
+        <app-print-modal [label]="vendorLabel"></app-print-modal>
       </div>
     </form>
   </div>

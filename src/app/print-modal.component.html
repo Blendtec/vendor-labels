@@ -1,0 +1,25 @@
+<div (click)="hide()" class="exit-intent-overlay" [ngClass]="{show: showing === true}">
+  <section class="exit-intent inline-subscribe  ">
+    <div class="display-table-cell exit-intent__content">
+      <div class="grid">
+        <div class="grid__item large--one-half vendor-label">
+          <h1>{{'LABEL.VENDOR_NAME' | translate}}: {{label.vendorName}}</h1>
+          <ngx-barcode [bc-value]="label.vendorName" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>{{'LABEL.PO_NUMBERJ' | translate}}</label>
+          <ngx-barcode [bc-value]="label.poNumber" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>{{'LABEL.ITEM_NUMBER' | translate}}</label>
+          <ngx-barcode [bc-value]="label.itemNumber" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>{{'LABEL.ITEM_NUMBER' | translate}}</label>
+          <ngx-barcode [bc-value]="label.quantity" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>{{'LABEL.UOM' | translate}}</label>
+          <ngx-barcode [bc-value]="label.uom" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <label>{{'LABEL.CONFIGURATION' | translate}}</label>
+          <ngx-barcode [bc-value]="label.configuration" [bc-height]="50" [bc-display-value]="true"></ngx-barcode>
+          <button name="button" class="btn no-print" onClick="window.print()">
+            {{'BUTTON.PRINT' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

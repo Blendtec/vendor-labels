@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_CONFIG } from './config';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NgxBarcodeModule } from 'ngx-barcode';
+import { PrintComponent } from './print-modal.component';
 
 
 describe('AppComponent', () => {
@@ -20,7 +21,7 @@ describe('AppComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
+        AppComponent, PrintComponent
       ],
       imports: [
         FormsModule,

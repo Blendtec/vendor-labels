@@ -1,7 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { PrintComponent } from './print-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnDestroy {
 
+  @ViewChild(PrintComponent)
+  public printModal: PrintComponent;
   public form: FormGroup;
   public vendorLabel: any;
   public formSubmitted = false;
@@ -31,6 +34,7 @@ export class AppComponent implements OnDestroy {
   public onSubmit(form: FormGroup): void {
     this.vendorLabel = form.value;
     this.formSubmitted = true;
+    this.printModal.show();
   }
 
   ngOnDestroy() {

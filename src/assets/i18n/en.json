@@ -3,9 +3,9 @@
     "INSTRUCTIONS": "Instructions: Please fill out all of the following fields, then click 'Generate Label' to create and print a Blendtec compliant shipping label."
   },
   "LABEL": {
-    "VENDOR_NAME": "Vendor name",
+    "VENDOR_NAME": "Vendor",
     "PO_NUMBER": "PO Number",
-    "ITEM_NUMBER": "Item Number",
+    "ITEM_NUMBER": "Blendtec Item Number",
     "QUANTITY": "Quantity",
     "UOM": "UOM",
     "CONFIGURATION": "Configuration"
